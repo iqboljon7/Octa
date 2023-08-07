@@ -1,5 +1,6 @@
 import asyncio
 import logging
+# dummy comment
 
 from aiogram import Bot, Dispatcher, types, F, Router
 from aiogram.fsm.context import FSMContext
