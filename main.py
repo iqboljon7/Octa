@@ -25,6 +25,9 @@ async def cmd_start(message: types.Message, state: FSMContext):
     await message.answer("Send the date of birth of the person whose information you want to find in the format day.month.year")
     await state.set_state(req.brdate)
 
+@dp.message(Command("nth"))
+async def cmd_start(message: types.Message):
+    await message.answer("nothing")
 @dp.message(req.brdate)
 async def birthday(msg: types.Message,state: FSMContext):
     await state.update_data(brdate=msg.text)
