@@ -39,15 +39,18 @@ async def birthday(msg: types.Message,state: FSMContext):
                 await state.set_state(req.ser_num)
             else:
                 await msg.answer("you entered information in wrong format")
+                await state.set_state(req.brdate)
         except:
             await msg.answer("you entered information in wrong format")
+            await state.set_state(req.brdate)
     else:
         await msg.answer("you entered information in wrong format")
+        await state.set_state(req.brdate)
 
 @dp.message(req.ser_num)
 async def serial_number(msg: types.Message, state: FSMContext):
     xabar=msg.text
-    if xabar[0]=="A" and len(xabar)==9:
+    if xabar[0]=="A" and len(xabar)==9 and (xabar[1] in ["A","B","C","D"]):
         try:
             if int(xabar[2:]):
                 await state.update_data(ser_num=msg.text)
