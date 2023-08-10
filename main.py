@@ -1,6 +1,5 @@
 import asyncio
 import logging
-# dummy comment
 
 from aiogram import Bot, Dispatcher, types, F, Router
 from aiogram.fsm.context import FSMContext
@@ -30,7 +29,8 @@ async def cmd_start(message: types.Message, state: FSMContext):
 @dp.message(req.brdate)
 async def birthday(msg: types.Message,state: FSMContext):
     m=msg.text
-    if m[2]==m[5]==".":
+    #dummy comet
+    if len(m)==10 and m[2]==m[5]==".":
         a,b,c = msg.text.split(".")
         try:
             if int(a) and int(b) and int(c):
